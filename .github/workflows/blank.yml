@@ -1,0 +1,27 @@
+name: continuous_integration
+
+on:
+  push:
+     paths:
+      - lolgang-web/**
+  pull_request:
+     paths:
+      - lolgang-web/**
+
+jobs:
+  build:
+    name: 🛠 Build & File Optimization 
+    runs-on: ubuntu-latest
+    steps:
+      - name: git-checkout
+        uses: actions/checkout@v2
+
+      - name: Install all dependencies
+        run: 
+          cd lolgang-web 
+          npm install
+
+      - name: Build & File Optimization 
+        run: 
+          cd lolgang-web 
+          npm run build 
